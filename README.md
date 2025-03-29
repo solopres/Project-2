@@ -8,7 +8,7 @@ A basic UNO game created to take you away momentarily from stressful stuff in li
 Members Page
 ### 📒Planning and Infrastructure
 Scope
-<br>Milestone
+<br>[Milestone](Requirements/Milestones.md)
 <br>Timeline
 <br>[Executive Summary](Requirements/ExecutiveSummary.md)
 <br>Sprint Reports

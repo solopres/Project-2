@@ -1,8 +1,8 @@
 # ROUGH IDEA – ZWEI
 
-**Project:** SWEI
+**Project:** ZWEI
 
-**Function:** SWEI is a UNO type game that allows players to enjoy the thrill of playing UNO either with a computer or another friend on their device.
+**Function:** ZWEI is a UNO type game that allows players to enjoy the thrill of playing UNO either with a computer or another friend on their device.
 
 **Programming language used:** Java
 

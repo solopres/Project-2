@@ -11,6 +11,8 @@ Members Page
 <br>[Scope Statement](Documentation/ScopeStatement.md)
 <br>[Milestone](Requirements/Milestones.md)
 <br>[Executive Summary](Requirements/ExecutiveSummary.md)
+<br>[Security Statement](Documentation/Security_Statement.md)
+<br>[Standards and Practices](Documentation/Standards_and_Practices.md)
 <br>[Design Problem Frame]
 <br>[Level 0 Design Diagram](Design/Zwei-LVL-0.drawio.pdf)
 <br>[Level 1 Design Diagram](Design/Zwei-LVL-1(PVP).drawio.pdf)

@@ -1,27 +1,20 @@
 ## Game Setup
-When prompted, choose game mode:
 
-1 for Player vs Player
+**When prompted, choose game mode:**
 
-2 for Player vs Computer
+- 1 for Player vs Player
+- 2 for Player vs Computer
+- Enter player names when prompted
 
-Enter player names when prompted
+**Gameplay Instructions:**
+- On your turn, you'll see your hand with numbered cards
+- Only cards marked [PLAYABLE] can be played
+- Enter the number of the card you want to play
 
-Gameplay Instructions
-On your turn, you'll see your hand with numbered cards
+**Special cards have these effects:**
 
-Only cards marked [PLAYABLE] can be played
-
-Enter the number of the card you want to play
-
-Special cards have these effects:
-
-Skip: Next player misses a turn
-
-Reverse: Changes play direction
-
-Draw2: Next player draws 2 cards
-
-If you can't play, you'll automatically draw a card
-
-First player to empty their hand wins! 
+- Skip: Next player misses a turn
+- Reverse: Changes play direction
+- Draw2: Next player draws 2 cards
+- If you can't play, you'll automatically draw a card
+- First player to empty their hand wins! 

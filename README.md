@@ -14,19 +14,21 @@
 - [Scope Statement](Documentation/ScopeStatement.md)
 - [Milestone](Requirements/Milestones.md)
 - [Executive Summary](Requirements/ExecutiveSummary.md)
-- <br>[Security Statement](Documentation/Security_Statement.md)
-- <br>[Standards and Practices](Documentation/Standards_and_Practices.md)
+- [Security Statement](Documentation/Security_Statement.md)
+- [Standards and Practices](Documentation/Standards_and_Practices.md)
 ### 🖌️ Design
-- <br>[Design Problem Frame]
-- <br>[Level 0 Design Diagram](Design/Zwei-LVL-0.drawio.pdf)
-- <br>[Level 1 Design Diagram](Design/Zwei-LVL-1(PVP).drawio.pdf)
-- <br>[UML Diagram]
+- [Design Problem Frame]
+- [Level 0 Design Diagram](Design/Zwei-LVL-0.drawio.pdf)
+- [Level 1 Design Diagram](Design/Zwei-LVL-1(PVP).drawio.pdf)
+- [UML Diagram]
 ### 💻Code Report
-- <br>[Sprint Reports for Iteration 1](Documentation/Sprint_Report_Iteration_1.md)
-- <br>[Sprint Report for Iteration 2](Documentation/Sprint_Report_Iteration_2.md)
+- [Sprint Reports for Iteration 1](Documentation/Sprint_Report_Iteration_1.md)
+- [Sprint Report for Iteration 2](Documentation/Sprint_Report_Iteration_2.md)
 ### 📖Documentation
-- <br>[Prototype and Documentation](Documentation/Prototype_and_Documentation.md)
-- <br>[Meeting Notes](Documentation/MeetingNotes.md)
+- [Prototype and Documentation](Documentation/Prototype_and_Documentation.md)
+- [Meeting Notes](Documentation/MeetingNotes.md)
+
+### 🩺 Testing
   
 ### 🔧 Maintainence
 

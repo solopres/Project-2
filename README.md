@@ -16,7 +16,7 @@
 - [Executive Summary](Requirements/ExecutiveSummary.md)
 - [Security Statement](Documentation/Security_Statement.md)
 - [Standards and Practices](Documentation/Standards_and_Practices.md)
-- - [Timeline](https://github.com/solopres/Project-2/blob/main/Requirements/timeline%20pdf.pdf)
+- [Timeline](https://github.com/solopres/Project-2/blob/main/Requirements/timeline%20pdf.pdf)
 ### 🖌️ Design
 - [Design Problem Frame](Requirements/Zwei-ProblemFrame.drawio(2).pdf)
 - [Level 0 Design Diagram](Design/Zwei-LVL-0.drawio.pdf)

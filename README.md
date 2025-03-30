@@ -17,10 +17,10 @@
 - [Security Statement](Documentation/Security_Statement.md)
 - [Standards and Practices](Documentation/Standards_and_Practices.md)
 ### 🖌️ Design
-- [Design Problem Frame]
+- [Design Problem Frame](Requirements/Zwei-ProblemFrame.drawio(2).pdf)
 - [Level 0 Design Diagram](Design/Zwei-LVL-0.drawio.pdf)
 - [Level 1 Design Diagram](Design/Zwei-LVL-1(PVP).drawio.pdf)
-- [UML Diagram]
+- [UML Diagram](Design/Zwei-ClassUMLs.drawio.pdf)
 ### 💻Code Report
 - [Sprint Reports for Iteration 1](Documentation/Sprint_Report_Iteration_1.md)
 - [Sprint Report for Iteration 2](Documentation/Sprint_Report_Iteration_2.md)

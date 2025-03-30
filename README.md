@@ -7,7 +7,8 @@ A basic UNO game created to take you away momentarily from stressful stuff in li
 ### ☀️About Us
 Members Page
 ### 📒Planning and Infrastructure
-[Rough Idea](Documentation/Rough Idea.md)
+
+<br>[Rough Idea](Documentation/RoughIdea.md)
 <br>Scope
 <br>[Milestone](Requirements/Milestones.md)
 <br>Timeline

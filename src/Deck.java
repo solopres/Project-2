@@ -26,7 +26,7 @@ public class Deck {
         }
     }
 
-    // Helper method to create deck from file
+    // Helper  
     private void createDeckFromFile() throws FileNotFoundException {
         File cardsFile = new File(cardsFilePath);
         Scanner scanner = new Scanner(cardsFile);
@@ -40,7 +40,7 @@ public class Deck {
                     String numberOrAbility = cardInfo[1].trim();
 
                     try {
-                        // Try to parse as number
+                         
                         int number = Integer.parseInt(numberOrAbility);
                         String ability = cardInfo.length > 2 ? cardInfo[2].trim() : "";
                         deckList.add(new Card(color, number, ability));

@@ -15,7 +15,8 @@ Members Page
 <br>[Level 0 Design Diagram](Design/Zwei-LVL-0.drawio.pdf)
 <br>[Level 1 Design Diagram](Design/Zwei-LVL-1(PVP).drawio.pdf)
 <br>[UML Diagram]
-<br>[Sprint Reports](Documentation/SprintReport.md)
+<br>[Sprint Reports for Iteration 1](Documentation/Sprint_Report_Iteration_1.md)
+<br>[Sprint Report for Iteration 2](Documentation/Sprint_Report_Iteration_2.md)
 <br>[Meeting Notes](Documentation/MeetingNotes.md)
 
 

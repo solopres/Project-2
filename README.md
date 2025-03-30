@@ -2,7 +2,7 @@
 ![image](https://github.com/user-attachments/assets/3a04cd71-0d9a-429a-848c-768217eae0ee)
 
 
-A basic UNO game created to take you away momentarily from stressful stuff in life.
+**A basic UNO game created to take you away momentarily from stressful stuff in life.**
 
 ---
 ## Table of Contents

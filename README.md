@@ -8,6 +8,7 @@
 ## Table of Contents
 ### ☀️About Us
 [Members Page](Documentation/Members_Page.md)
+<br>[Getting Started](Requirements/Getting_Started.md)
 ### 📒Planning and Infrastructure
 [Rough Idea](Documentation/RoughIdea.md)
 <br>[Scope Statement](Documentation/ScopeStatement.md)

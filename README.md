@@ -5,7 +5,7 @@ A basic UNO game created to take you away momentarily from stressful stuff in li
 ---
 ## Table of Contents
 ### ☀️About Us
-Members Page
+[Members Page](Documentation/Members_Page.md)
 ### 📒Planning and Infrastructure
 [Rough Idea](Documentation/RoughIdea.md)
 <br>[Scope Statement](Documentation/ScopeStatement.md)

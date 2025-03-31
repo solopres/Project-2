@@ -11,6 +11,8 @@
 - Went over code with code lead to determine area for improvement
 - Went over what will be included in the documentation
 ## March 31st
+- Presented weeks progress to class.
+- Recieved feedback on implementing a Game Controller class as well as GUI options for the UNO game.
 - Decided to refine and test existing code before moveing ahead with further sprints.
 - Design Lead is working on editiong/improving his designs.
 

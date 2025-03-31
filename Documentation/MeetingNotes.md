@@ -1,4 +1,4 @@
-# Meeting Notes for March 24th and 28th
+# Meeting Notes 
 ## March 24th
 - Decided on game for project
 - Decided on how we are going to go about the project
@@ -10,6 +10,9 @@
 - Went over tasks again
 - Went over code with code lead to determine area for improvement
 - Went over what will be included in the documentation
+## March 31st
+- Decided to refine and test existing code before moveing ahead with further sprints.
+- Design Lead is working on editiong/improving his designs.
 
 # Other
 - Finalized week 1 requirements during the weekend

@@ -5,7 +5,7 @@
 - PLayer information is kept private and stored securely
 - Personal Information will not be shared
 ## Game Integrity
-- Cards are dealed randomly to keep the game fair
+- Cards are dealt randomly to keep the game fair
 - Validation is ensured to prevent cheating
 ## Program Security
 - Input validation is ensured for all user input

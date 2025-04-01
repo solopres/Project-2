@@ -9,7 +9,7 @@ The current problem that plagues people around the world is that they don’t ha
 The UNO Players will develop a game via Java that is set to fix the two major issues provided in the problem: the lack of an UNO based game coded with Java and the lack of a single player UNO. This will be done by using the Scrum version of the Agile software development life cycle. The team will go into around 8-9 sprints in order to coordinate, design, and implement deliverables to solve the main two problems previously mentioned.
 
 ## Proposed solution
-The current solution is called Swei. Swei will be a Java file that runs a game very similar to UNO. The basic rules will remain the same, but more complicated rules like “jumping in” or special features of the zero and seven will not be implemented. Swei will have the ability for player versus player as well as a player versus computer in later deliverables. The implementation of a GUI will be dependent on the success rate of previous sprints and is not guaranteed with the lack of time for the program’s completion.
+The current solution is called Zwei. Zwei will be a Java file that runs a game very similar to UNO. The basic rules will remain the same, but more complicated rules like “jumping in” or special features of the zero and seven will not be implemented. Zwei will have the ability for player versus player as well as a player versus computer in later deliverables. The implementation of a GUI will be dependent on the success rate of previous sprints and is not guaranteed with the lack of time for the program’s completion.
 
 ## Expected deliverables
 We expect to have the following deliverables:

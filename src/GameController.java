@@ -11,6 +11,7 @@ public class GameController {
     private boolean isGameOver;
     private boolean isReversed;
     private Scanner scanner;
+    private static final int MESSAGE_DELAY = 700; // Delay in milliseconds
 
     // Constructor
     public GameController(Scanner scanner) {
@@ -25,9 +26,9 @@ public class GameController {
 
     // Game setup
     public void setupGame() {
-        System.out.println("Welcome to Zwei!");
-        System.out.println("1. Player vs Player");
-        System.out.println("2. Player vs Computer");
+        displayWithDelay("Welcome to Zwei!");
+        displayWithDelay("1. Player vs Player");
+        displayWithDelay("2. Player vs Computer");
 
         int choice = getValidInput(1, 2);
 
@@ -46,7 +47,9 @@ public class GameController {
         }
 
         // Shuffle and deal
+        displayWithDelay("Shuffling deck...");
         deck.shuffle();
+        displayWithDelay("Dealing initial cards...");
         dealInitialCards();
 
         // Start the game with a card from deck
@@ -60,7 +63,7 @@ public class GameController {
         }
         stack.add(topCard);
 
-        System.out.println("\nGame starts with: " + topCard);
+        displayWithDelay("\nGame starts with: " + topCard);
     }
 
     // Deal initial cards
@@ -79,14 +82,14 @@ public class GameController {
 
         while (!isGameOver) {
             Player currentPlayer = players.get(currentPlayerIndex);
-            System.out.println("\n" + currentPlayer.getName() + "'s turn");
+            displayWithDelay("\n" + currentPlayer.getName() + "'s turn");
 
             // Handle player's turn
             handlePlayerTurn(currentPlayer);
 
             // Check win condition
             if (currentPlayer.hasWon()) {
-                System.out.println("\n" + currentPlayer.getName() + " wins!");
+                displayWithDelay("\n🎉 " + currentPlayer.getName() + " wins! 🎉");
                 isGameOver = true;
             } else {
                 // Move to next player
@@ -94,7 +97,7 @@ public class GameController {
             }
         }
 
-        System.out.println("\nGame Over!");
+        displayWithDelay("\nGame Over!");
     }
 
     // Handle a player's turn
@@ -106,20 +109,20 @@ public class GameController {
             List<Card> playableCards = player.getPlayableCards(topCard);
 
             if (playableCards.isEmpty()) {
-                System.out.println(player.getName() + " has no playable cards. Drawing from deck...");
+                displayWithDelay(player.getName() + " has no playable cards. Drawing from deck...");
                 Card drawnCard = drawCard();
 
                 if (drawnCard == null) {
-                    System.out.println("Deck is empty and cannot be replenished. Skipping turn.");
+                    displayWithDelay("Deck is empty and cannot be replenished. Skipping turn.");
                     return;
                 }
 
                 player.addCard(drawnCard);
-                System.out.println(player.getName() + " drew: " + drawnCard);
+                displayWithDelay(player.getName() + " drew: " + drawnCard);
 
                 // Check if the drawn card can be played
                 if (drawnCard.isPlayable(topCard)) {
-                    System.out.println("The drawn card can be played!");
+                    displayWithDelay("The drawn card can be played!");
                     playableCards = player.getPlayableCards(topCard);
                 }
             }
@@ -129,6 +132,8 @@ public class GameController {
                 Card playedCard;
 
                 if (player.isComputer()) {
+                    // Add a delay before computer plays
+                    sleep(1000);
                     playedCard = player.playComputerCard(topCard);
                 } else {
                     playedCard = player.playCard(topCard, scanner);
@@ -138,7 +143,7 @@ public class GameController {
                     // Add the played card to the stack
                     stack.add(playedCard);
                     topCard = playedCard;
-                    System.out.println(player.getName() + " played: " + playedCard);
+                    displayWithDelay(player.getName() + " played: " + playedCard);
 
                     // Handle special card effects
                     handleSpecialCardEffects(playedCard);
@@ -146,7 +151,7 @@ public class GameController {
                     hasPlayed = true;
                 }
             } else {
-                System.out.println(player.getName() + " still has no playable cards. Skipping turn.");
+                displayWithDelay(player.getName() + " still has no playable cards. Skipping turn.");
                 hasPlayed = true;
             }
 
@@ -158,15 +163,15 @@ public class GameController {
         String ability = card.getAbility();
 
         if (ability.equals("Skip")) {
-            System.out.println("Skip next player's turn!");
+            displayWithDelay("⏭️ Skip next player's turn!");
             moveToNextPlayer(); // Skip the next player
         } else if (ability.equals("Reverse")) {
-            System.out.println("Reverse direction!");
+            displayWithDelay("🔄 Reverse direction!");
             isReversed = !isReversed;
         } else if (ability.equals("Draw2")) {
             int nextPlayerIndex = getNextPlayerIndex();
             Player nextPlayer = players.get(nextPlayerIndex);
-            System.out.println(nextPlayer.getName() + " must draw 2 cards!");
+            displayWithDelay("➕ " + nextPlayer.getName() + " must draw 2 cards!");
 
             // Draw 2 cards
             for (int i = 0; i < 2; i++) {
@@ -186,7 +191,7 @@ public class GameController {
                 return null;
             }
 
-            System.out.println("Deck is empty. Reshuffling played cards...");
+            displayWithDelay("Deck is empty. Reshuffling played cards...");
 
             // Keep the top card
             Card lastPlayedCard = stack.remove(stack.size() - 1);
@@ -243,5 +248,20 @@ public class GameController {
         }
 
         return choice;
+    }
+
+    // Helper method to display text with delay
+    private void displayWithDelay(String message) {
+        System.out.println(message);
+        sleep(MESSAGE_DELAY);
+    }
+
+    // Helper method to sleep
+    private void sleep(int milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 }

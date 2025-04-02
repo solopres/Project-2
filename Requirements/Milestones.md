@@ -103,32 +103,40 @@ User Story:
 - End of Week 1 Mar 30, 2025
 
 ## Sprint 3: Cleanup and Fine Tuning
-**User Story:**
-- As a player I want to be able to easily track what happens in the game so I can make decisions more easily
-**1. Slow Console Outputs**
-- Make console outputs delay from the previous enabling users to easily read each output
-**2. Update Design**
-- Update UMLs to include Game controller
-- Rehash Dataflow diagrams
-**3. Testing**
-- Test each class needed for game functionality
+**User Story:** 
+ - As a player I want to be able to easily track what happens in the game so I can make decisions more easily
+
+**1. Slow Console Outputs** 
+ - Make console outputs delay from the previous enabling users to easily read each output
+
+**2. Update Design** 
+ - Update UMLs to include Game controller
+ - Rehash Dataflow diagrams
+   
+**3. Testing** 
+ - Test each class needed for game functionality
+ - Outputs able to be read before next output made
 
 ## Sprint 4: Basic GUI window
-**User Story:**
--	As a player I want a Java based UNO-like game using GUI element so that I see my cards and play them as if I were actually playing UNO.
-**1.	Make Basic window**
--	Window can open and close
--	Size of window is adjustable
-**2. Background & Welcome Message**
-- Window will contain a background
-- Window will output welcome message to user/player
-**3. Deliverables**
-- Adjustable window that can be open/closed
-- Background adjusts with window
-- Welcome message can be read and dismissed
-**4. Testing**
-- Window opens
-- Window closes
-- Window can be adjusted
-- Welcome message can be dismissed
+**User Story:** 
+ -	As a player I want a Java based UNO-like game using GUI element so that I see my cards and play them as if I were actually playing UNO.
+
+**1.	Make Basic window** 
+ -	Window can open and close
+ -	Size of window is adjustable
+   
+**2. Background & Welcome Message** 
+ - Window will contain a background
+ - Window will output welcome message to user/player
+   
+**3. Deliverables** 
+ - Adjustable window that can be open/closed
+ - Background adjusts with window
+ - Welcome message can be read and dismissed
+   
+**4. Testing** 
+ - Window opens
+ - Window closes
+ - Window can be adjusted
+ - Welcome message can be dismissed
 

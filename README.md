@@ -29,10 +29,16 @@
 - [GameController.java](https://github.com/solopres/Project-2/blob/Code/src/GameController.java)
 - [Player.java](https://github.com/solopres/Project-2/blob/Code/src/Player.java)
 - [Main.java](https://github.com/solopres/Project-2/blob/Code/src/Main.java)
-- [Sprint Reports for Iteration 1](Documentation/Sprint_Report_Iteration_1.md)
-- [Sprint Report for Iteration 2](Documentation/Sprint_Report_Iteration_2.md)
+
 ### 📖Documentation
 - [Prototype and Documentation](Documentation/Prototype_and_Documentation.md)
+- [Sprint Reports for Iteration 1](Documentation/Sprint_Report_Iteration_1.md)
+- [Sprint Report for Iteration 2](Documentation/Sprint_Report_Iteration_2.md)
+- [Sprint Reports for Iteration 3](Documentation/Sprint_Report_Iteration_3.md)
+- [Sprint Report for Iteration 4](Documentation/Sprint_Report_Iteration_4.md)
+- [Sprint Reports for Iteration 5](Documentation/Sprint_Report_Iteration_5.md)
+- [Sprint Report for Iteration 6](Documentation/Sprint_Report_Iteration_6.md)
+- [Sprint Report for Iteration 7](Documentation/Sprint_Report_Iteration_7.md)
 - [Meeting Notes](Documentation/MeetingNotes.md)
 
 ### 🩺 Testing

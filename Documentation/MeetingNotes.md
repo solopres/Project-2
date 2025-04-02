@@ -27,12 +27,12 @@
   - Make the console output much slower
 -  Goals of Second Sprint 
   - The focus is to create a rough structure for the GUI
-    - This will include a basic setup where the player can see their card and see the opposing player cards
     - a window that can open and close
     - Background with a welcome message
-    - (optional) making the back of the card
 -  Goal of the third srint
+    - This will include a basic setup where the player can see their card and see the opposing player cards
     - Start making card stuff, deck, player hand, opposing player hand
+    - Making the back of the card (Braxton)
 # Other Week 1
 - Finalized week 1 requirements during the weekend
 # Other Week 2

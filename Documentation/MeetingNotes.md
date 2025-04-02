@@ -15,6 +15,27 @@
 - Recieved feedback on implementing a Game Controller class as well as GUI options for the UNO game.
 - Decided to refine and test existing code before moveing ahead with further sprints.
 - Design Lead is working on editiong/improving his designs.
-
-# Other
+## April 2nd
+- Looking for frameworks to develop the GUI, we decided on LibGDX
+- The team decided on having two versions of the  UNO game, one is command line based and the other is GUI based.
+- The team is focused on getting the GUI up in three sprints and if an additional sprint is needed, it will be utilized.
+- The goals of the sprints were discussed and planned.
+  - Design lead wants to start to do card background for the second sprint 
+  
+- Goal of First Sprint:
+  - Cleanup  existing code
+  - Make the console output much slower
+-  Goals of Second Sprint 
+  - The focus is to create a rough structure for the GUI
+    - This will include a basic setup where the player can see their card and see the opposing player cards
+    - a window that can open and close
+    - Background with a welcome message
+    - (optional) making the back of the card
+-  Goal of the third srint
+    - Start making card stuff, deck, player hand, opposing player hand
+# Other Week 1
 - Finalized week 1 requirements during the weekend
+# Other Week 2
+- If we do get the GUI set up, the team plans on getting more computer tasks done for the game.
+- Sprint for next week
+  - game functionality, making everything function together making every thing work as a good game

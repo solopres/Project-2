@@ -39,7 +39,7 @@
 - [Sprint Reports for Iteration 5](Documentation/Sprint_Report_Iteration_5.md)
 - [Sprint Report for Iteration 6](Documentation/Sprint_Report_Iteration_6.md)
 - [Sprint Report for Iteration 7](Documentation/Sprint_Report_Iteration_7.md)
-- [Meeting Notes](Documentation/MeetingNotes.md)
+- [Meeting Notes for Project](Documentation/MeetingNotes.md)
 
 ### 🩺 Testing
   

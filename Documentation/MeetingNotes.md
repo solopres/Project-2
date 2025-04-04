@@ -33,6 +33,8 @@
     - This will include a basic setup where the player can see their card and see the opposing player cards
     - Start making card stuff, deck, player hand, opposing player hand
     - Making the back of the card (Braxton)
+## April 4th
+- 
 # Other Week 1
 - Finalized week 1 requirements during the weekend
 # Other Week 2

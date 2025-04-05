@@ -21,7 +21,7 @@
 - [Design Problem Frame](Requirements/Zwei-ProblemFrame.drawio(2).pdf)
 - [Level 0 Design Diagram](Design/Zwei-LVL-0.drawio.pdf)
 - [Level 1 Design Diagram](https://github.com/solopres/Project-2/blob/main/Design/Zwei-LVL-1%20(Final).drawio.pdf)
-- [UML Diagram](https://github.com/solopres/Project-2/blob/main/Design/Zwei-ClassUMLs.drawio%20(2).pdf)
+- [UML Diagram](https://github.com/solopres/Project-2/blob/main/Design/Zwei-ClassUMLs.drawio%20(3).pdf)
 ### 💻Code 
 - [Card.java](https://github.com/solopres/Project-2/blob/Code/src/Card.java)
 - [Deck.java](https://github.com/solopres/Project-2/blob/Code/src/Deck.java)

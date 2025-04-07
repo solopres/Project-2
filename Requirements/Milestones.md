@@ -119,7 +119,7 @@ User Story:
 
 ## Sprint 4: Basic GUI window
 **User Story:** 
- -	As a player I want a Java based UNO-like game using GUI element so that I see my cards and play them as if I were actually playing UNO.
+ -	As a player I want a Java based UNO-like game using GUI elements so that I see my cards and play them as if I were actually playing UNO.
 
 **1.	Make Basic window** 
  -	Window can open and close
@@ -139,4 +139,30 @@ User Story:
  - Window closes
  - Window can be adjusted
  - Welcome message can be dismissed
+
+## Sprint 5: GUI Card View
+**User Story:** 
+ -	As a player I want a Java based UNO-like game using GUI element so that I see my cards and play them as if I were actually playing UNO.
+
+**1.	Make Cards** 
+ -	Cards designed
+ -	Back of card Designed (Braxton)
+ -	Each color represented visually with respective numbers/abilities shown
+   
+**2. Player Hand** 
+ - Player hand can be seen
+ - Interactable cards that can be clicked on to play
+ - Opposing Player hands can be seen, but card colors and values hidden
+   
+**3. Last Played Card** 
+ - Last played card visible to allow players to choose playable cards
+ - Center of window
+ 
+**4. Draw Deck** 
+ - Player can see draw deck/pile for when no playable cards are in their hand
+
+**4. Testing**
+- All GUI elements visible
+- Player hand is interactible (Player can draw and play cards)
+
 

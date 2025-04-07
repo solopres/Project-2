@@ -1,4 +1,5 @@
-# Sprint 2 Outcome
+ # Sprint Report for Iteration 4
+**Outcome:**
 
 - Created a functional GUI window that opens and closes properly
 - Implemented a welcome screen with gradient background and title message

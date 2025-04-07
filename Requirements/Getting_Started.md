@@ -1,4 +1,3 @@
- # Zwei week 2
 
 ## What we Built
 we created a card game called "Zwei" which is basically our own version of UNO. The game runs either in console mode or with a graphical interface.

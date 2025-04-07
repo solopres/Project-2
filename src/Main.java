@@ -1,7 +1,17 @@
 import java.util.Scanner;
+import javax.swing.SwingUtilities;
 
 public class Main {
     public static void main(String[] args) {
+        // Check if we should run in GUI or console mode
+        if (args.length > 0 && args[0].equalsIgnoreCase("console")) {
+            runConsoleMode();
+        } else {
+            runGUIMode();
+        }
+    }
+
+    private static void runConsoleMode() {
         Scanner scanner = new Scanner(System.in);
         boolean playAgain = true;
 
@@ -24,5 +34,12 @@ public class Main {
         }
 
         System.out.println("Thanks for playing Zwei!");
+    }
+
+    private static void runGUIMode() {
+        SwingUtilities.invokeLater(() -> {
+            ZweiGUI gui = new ZweiGUI();
+            gui.setVisible(true);
+        });
     }
 }

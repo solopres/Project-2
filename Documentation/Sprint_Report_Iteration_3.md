@@ -1,5 +1,5 @@
-# First Sprint
-**Outcome of First Sprint:**
+# Sprint Report for Iteration 3
+**Outcome:**
 - I've added the displayWithDelay() method to slow down console output
 - Added delays between messages to make the game easier to follow
 - Added emojis for special card actions to make the console output more engaging

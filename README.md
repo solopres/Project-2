@@ -28,6 +28,11 @@
 - [GameController.java](https://github.com/solopres/Project-2/blob/Code/src/GameController.java)
 - [Player.java](https://github.com/solopres/Project-2/blob/Code/src/Player.java)
 - [Main.java](https://github.com/solopres/Project-2/blob/Code/src/Main.java)
+- [GamePlayPanel.java](https://github.com/solopres/Project-2/blob/Code/src/GamePlayPanel.java)
+- [PlayerHandView.java](https://github.com/solopres/Project-2/blob/Code/src/PlayerHandView.java)
+- [ZweiGUI.java](https://github.com/solopres/Project-2/blob/Code/src/ZweiGUI.java)
+- [CardView.java](https://github.com/solopres/Project-2/blob/Code/src/CardView.java)
+  
 
 ### 📖Documentation
 - [Prototype and Documentation](Documentation/Prototype_and_Documentation.md)

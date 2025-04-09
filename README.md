@@ -32,6 +32,7 @@
 - [PlayerHandView.java](https://github.com/solopres/Project-2/blob/Code/src/PlayerHandView.java)
 - [ZweiGUI.java](https://github.com/solopres/Project-2/blob/Code/src/ZweiGUI.java)
 - [CardView.java](https://github.com/solopres/Project-2/blob/Code/src/CardView.java)
+- [GUIGameController.java](https://github.com/solopres/Project-2/blob/Code/src/GUIGameController.java)
   
 
 ### 📖Documentation

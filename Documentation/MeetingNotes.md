@@ -16,7 +16,7 @@
 - Decided to refine and test existing code before moveing ahead with further sprints.
 - Design Lead is working on editiong/improving his designs.
 ## April 2nd
-- Looking for frameworks to develop the GUI, we decided on LibGDX
+- Looking for frameworks to develop the GUI, we decided on Gui swing
 - The team decided on having two versions of the  UNO game, one is command line based and the other is GUI based.
 - The team is focused on getting the GUI up in three sprints and if an additional sprint is needed, it will be utilized.
 - The goals of the sprints were discussed and planned.

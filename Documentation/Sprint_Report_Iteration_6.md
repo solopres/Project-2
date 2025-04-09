@@ -9,5 +9,5 @@
 
 **Outcome:**
 
-- Successfully integrated core game mechanics into the GUI structure.
-- Set up the foundation for user interactions to reflect real-time game logic
+- The game and the screen are now connected.
+- This makes it possible for players to see the game working when they click or play.

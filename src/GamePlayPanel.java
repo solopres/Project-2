@@ -4,9 +4,9 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GamePlayPanel extends JPanel {
+public class GamePlayPanel extends JPanel implements GUIGameController.GameEventListener {
     // Game components
-    private GameController gameController;
+    private GUIGameController gameController;
     private Card topCard;
     private Player currentPlayer;
 
@@ -15,9 +15,11 @@ public class GamePlayPanel extends JPanel {
     private CardView deckView;
     private CardView stackView;
     private JPanel playerArea;
+    private JPanel opponentArea;
     private List<PlayerHandView> playerHandViews;
     private JLabel statusLabel;
     private JButton drawButton;
+    private Timer computerMoveTimer;
 
     public GamePlayPanel() {
         setLayout(new BorderLayout());
@@ -25,6 +27,16 @@ public class GamePlayPanel extends JPanel {
 
         // Initialize component lists
         playerHandViews = new ArrayList<>();
+        gameController = new GUIGameController();
+        gameController.addGameEventListener(this);
+
+        // Initialize computer move timer
+        computerMoveTimer = new Timer(1000, e -> {
+            if (currentPlayer != null && currentPlayer.isComputer()) {
+                gameController.playComputerTurn();
+            }
+        });
+        computerMoveTimer.setRepeats(false);
 
         // Create UI areas
         initGameAreas();
@@ -46,9 +58,9 @@ public class GamePlayPanel extends JPanel {
         centerPanel.setOpaque(false);
 
         // Opponents area (top)
-        JPanel opponentsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
-        opponentsPanel.setOpaque(false);
-        centerPanel.add(opponentsPanel, BorderLayout.NORTH);
+        opponentArea = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+        opponentArea.setOpaque(false);
+        centerPanel.add(opponentArea, BorderLayout.NORTH);
 
         // Deck and stack area (center)
         deckArea = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 20));
@@ -92,88 +104,152 @@ public class GamePlayPanel extends JPanel {
     public void initializeGame(List<Player> players) {
         // Clear existing player views
         playerArea.removeAll();
+        opponentArea.removeAll();
         playerHandViews.clear();
 
-        // Create and add player hand views
-        PlayerHandView mainPlayerView = new PlayerHandView(players.get(0), false);
-        playerHandViews.add(mainPlayerView);
-        playerArea.add(mainPlayerView);
+        if (players.size() >= 1) {
+            // Create main player view
+            Player mainPlayer = players.get(0);
+            PlayerHandView mainPlayerView = new PlayerHandView(mainPlayer, false);
 
-        // Add computer/opponent player
-        if (players.size() > 1) {
-            Player opponent = players.get(1);
+            // Add click listeners to cards
+            mainPlayerView.addCardClickListener(card -> {
+                if (currentPlayer == mainPlayer && card.isPlayable(topCard)) {
+                    gameController.playCard(card);
+                }
+            });
+
+            playerHandViews.add(mainPlayerView);
+            playerArea.add(mainPlayerView);
+        }
+
+        // Add opponent players
+        for (int i = 1; i < players.size(); i++) {
+            Player opponent = players.get(i);
             PlayerHandView opponentView = new PlayerHandView(opponent, true);
             playerHandViews.add(opponentView);
-
-            // Add to UI
-            JPanel opponentsPanel = (JPanel) ((BorderLayout) ((JPanel) getComponent(1)).getLayout()).getLayoutComponent(BorderLayout.NORTH);
-            opponentsPanel.add(opponentView);
+            opponentArea.add(opponentView);
         }
+
+        // Initialize game with players
+        gameController.setupGame(players);
 
         revalidate();
         repaint();
     }
 
-    // Method to update the game state
-    public void updateGameState(Card topCard, Player currentPlayer) {
-        this.topCard = topCard;
-        this.currentPlayer = currentPlayer;
+    // Handle deck click (draw card)
+    private void handleDeckClick() {
+        if (currentPlayer != null && !currentPlayer.isComputer() &&
+                currentPlayer == gameController.getCurrentPlayer()) {
+            gameController.drawCard();
+        }
+    }
 
-        // Update stack view
+    // Update player hand view playable cards
+    private void updatePlayableCards() {
+        for (PlayerHandView handView : playerHandViews) {
+            if (!handView.getPlayer().isComputer()) {
+                handView.updatePlayableCards(topCard);
+            }
+        }
+    }
+
+    // GameEventListener implementation
+    public void onGameStateChanged() {
+        topCard = gameController.getTopCard();
+
+        // Update stack view with top card
+        stackView.setCard(topCard);
         stackView.setFaceUp(true);
-        // Implementation for updating actual card to display needs GameController integration
 
-        // Update player hand views
+        // Update all player hands
         for (PlayerHandView handView : playerHandViews) {
             handView.updateHand();
-            handView.updatePlayableCards(topCard);
         }
 
-        // Update status text
+        updatePlayableCards();
+
+        revalidate();
+        repaint();
+    }
+
+
+    public void onPlayerTurnChanged(Player player) {
+        currentPlayer = player;
+
+        // Update UI to show current player
+        for (PlayerHandView handView : playerHandViews) {
+            handView.setCurrentPlayer(handView.getPlayer() == currentPlayer);
+        }
+
+        // Update status label
         statusLabel.setText(currentPlayer.getName() + "'s turn");
 
         // Enable/disable draw button based on current player
-        drawButton.setEnabled(currentPlayer == playerHandViews.get(0).getPlayer());
+        boolean isHumanTurn = !currentPlayer.isComputer() &&
+                currentPlayer == gameController.getPlayers().get(0);
+        drawButton.setEnabled(isHumanTurn);
+
+        // Update playable cards
+        updatePlayableCards();
+
+        // If computer's turn, start timer for computer move
+        if (currentPlayer.isComputer()) {
+            computerMoveTimer.start();
+        }
 
         revalidate();
         repaint();
     }
 
-    private void handleDeckClick() {
-        // This would be connected to the GameController
-        // For now, it's a placeholder
-        statusLabel.setText("Clicked deck - drawing card");
+
+    public void onCardPlayed(Player player, Card card) {
+        // Update status
+        statusLabel.setText(player.getName() + " played " + card.toString());
     }
 
-    // Method to handle card selection in player's hand
-    public void selectCard(Card card) {
-        // This would connect to the GameController to play a card
+
+    public void onCardDrawn(Player player, Card card) {
+        // Update status
+        statusLabel.setText(player.getName() + " drew a card");
     }
 
-    // Testing method to simulate a game setup
-    public void setupTestGame() {
-        // Create test players
-        Player player1 = new Player("You", false);
-        Player player2 = new Player("Computer", true);
 
-        // Add some test cards
-        player1.addCard(new Card("R", 5, ""));
-        player1.addCard(new Card("B", 7, ""));
-        player1.addCard(new Card("G", -1, "Skip"));
-        player1.addCard(new Card("Y", 2, ""));
+    public void onSpecialCardEffect(String effect) {
+        // Update status based on effect
+        switch (effect) {
+            case "Skip":
+                statusLabel.setText("⏭️ Skip next player's turn!");
+                break;
+            case "Reverse":
+                statusLabel.setText("🔄 Reverse direction!");
+                break;
+            case "Draw2":
+                statusLabel.setText("➕ Next player must draw 2 cards!");
+                break;
+        }
+    }
 
-        player2.addCard(new Card("R", 5, ""));
-        player2.addCard(new Card("B", 7, ""));
-        player2.addCard(new Card("G", -1, "Skip"));
 
-        // Initialize with test players
-        List<Player> players = new ArrayList<>();
-        players.add(player1);
-        players.add(player2);
+    public void onGameOver(Player winner) {
+        statusLabel.setText("🎉 " + winner.getName() + " wins! 🎉");
+        drawButton.setEnabled(false);
+        computerMoveTimer.stop();
 
-        initializeGame(players);
+        // Show game over dialog
+        SwingUtilities.invokeLater(() -> {
+            JOptionPane.showMessageDialog(this,
+                    winner.getName() + " wins the game!",
+                    "Game Over",
+                    JOptionPane.INFORMATION_MESSAGE);
+        });
+    }
 
-        // Set top card
-        updateGameState(new Card("R", 4, ""), player1);
+    // Add method to stop timers when panel is hidden
+    public void stopTimers() {
+        if (computerMoveTimer != null) {
+            computerMoveTimer.stop();
+        }
     }
 }

@@ -1,17 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class PlayerHandView extends JPanel {
     private Player player;
     private List<CardView> cardViews;
     private boolean isCurrentPlayer;
     private boolean isOpponent;
-
-    public Player getPlayer() {
-        return player;
-    }
+    private Consumer<Card> cardClickListener;
 
     // Card layout constants
     private static final int CARD_OVERLAP = 30;
@@ -28,10 +27,18 @@ public class PlayerHandView extends JPanel {
         updateHand();
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
     public void setCurrentPlayer(boolean isCurrentPlayer) {
         this.isCurrentPlayer = isCurrentPlayer;
         updateHand();
         repaint();
+    }
+
+    public void addCardClickListener(Consumer<Card> listener) {
+        this.cardClickListener = listener;
     }
 
     public void updateHand() {
@@ -44,6 +51,28 @@ public class PlayerHandView extends JPanel {
         for (int i = 0; i < cards.size(); i++) {
             Card card = cards.get(i);
             CardView cardView = new CardView(card, !isOpponent);
+
+            // Add click listener if not opponent and we have a listener
+            if (!isOpponent && cardClickListener != null) {
+                final Card cardToPlay = card;
+                cardView.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        if (isCurrentPlayer) {
+                            cardClickListener.accept(cardToPlay);
+                        }
+                    }
+
+                    public void mouseEntered(MouseEvent e) {
+                        if (isCurrentPlayer && cardView.isPlayable()) {
+                            setCursor(new Cursor(Cursor.HAND_CURSOR));
+                        }
+                    }
+
+                    public void mouseExited(MouseEvent e) {
+                        setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+                    }
+                });
+            }
 
             // Calculate position for card
             int x = i * CARD_OVERLAP;

@@ -33,9 +33,25 @@ public class CardView extends JPanel {
         setMinimumSize(new Dimension(CARD_WIDTH, CARD_HEIGHT));
 
         // Set tooltip to display card info
+        updateTooltip();
+    }
+
+    private void updateTooltip() {
         if (card != null) {
             setToolTipText(card.toString());
+        } else {
+            setToolTipText("Deck");
         }
+    }
+
+    public void setCard(Card card) {
+        this.card = card;
+        updateTooltip();
+        repaint();
+    }
+
+    public Card getCard() {
+        return card;
     }
 
     public void setPlayable(boolean playable) {
@@ -43,13 +59,13 @@ public class CardView extends JPanel {
         repaint();
     }
 
+    public boolean isPlayable() {
+        return isPlayable;
+    }
+
     public void setFaceUp(boolean faceUp) {
         this.faceUp = faceUp;
         repaint();
-    }
-
-    public Card getCard() {
-        return card;
     }
 
     @Override

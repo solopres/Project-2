@@ -15,7 +15,9 @@ public class GamePlayPanel extends JPanel implements GUIGameController.GameEvent
     private CardView deckView;
     private CardView stackView;
     private JPanel playerArea;
-    private JPanel opponentArea;
+    private JPanel topOpponentArea;
+    private JPanel leftOpponentArea;
+    private JPanel rightOpponentArea;
     private List<PlayerHandView> playerHandViews;
     private JLabel statusLabel;
     private JButton drawButton;
@@ -23,7 +25,10 @@ public class GamePlayPanel extends JPanel implements GUIGameController.GameEvent
 
     public GamePlayPanel() {
         setLayout(new BorderLayout());
-        setOpaque(false);
+
+        // Set panel background with gradient
+        setOpaque(true);
+        setBackground(new Color(160, 100, 150));
 
         // Initialize component lists
         playerHandViews = new ArrayList<>();
@@ -42,6 +47,18 @@ public class GamePlayPanel extends JPanel implements GUIGameController.GameEvent
         initGameAreas();
     }
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        // Draw gradient background
+        Graphics2D g2d = (Graphics2D) g;
+        GradientPaint gradient = new GradientPaint(0, 0, new Color(180, 90, 90),
+                getWidth(), getHeight(), new Color(130, 80, 220));
+        g2d.setPaint(gradient);
+        g2d.fillRect(0, 0, getWidth(), getHeight());
+    }
+
     private void initGameAreas() {
         // Top panel for game information
         JPanel infoPanel = new JPanel(new BorderLayout());
@@ -53,14 +70,26 @@ public class GamePlayPanel extends JPanel implements GUIGameController.GameEvent
         statusLabel.setHorizontalAlignment(JLabel.CENTER);
         infoPanel.add(statusLabel, BorderLayout.CENTER);
 
-        // Center panel for opponents, deck, and play area
-        JPanel centerPanel = new JPanel(new BorderLayout());
-        centerPanel.setOpaque(false);
+        // Main game panel
+        JPanel gamePanel = new JPanel(new BorderLayout());
+        gamePanel.setOpaque(false);
 
-        // Opponents area (top)
-        opponentArea = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
-        opponentArea.setOpaque(false);
-        centerPanel.add(opponentArea, BorderLayout.NORTH);
+        // Top opponents area
+        topOpponentArea = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+        topOpponentArea.setOpaque(false);
+        gamePanel.add(topOpponentArea, BorderLayout.NORTH);
+
+        // Left opponent area
+        leftOpponentArea = new JPanel();
+        leftOpponentArea.setLayout(new BoxLayout(leftOpponentArea, BoxLayout.Y_AXIS));
+        leftOpponentArea.setOpaque(false);
+        gamePanel.add(leftOpponentArea, BorderLayout.WEST);
+
+        // Right opponent area
+        rightOpponentArea = new JPanel();
+        rightOpponentArea.setLayout(new BoxLayout(rightOpponentArea, BoxLayout.Y_AXIS));
+        rightOpponentArea.setOpaque(false);
+        gamePanel.add(rightOpponentArea, BorderLayout.EAST);
 
         // Deck and stack area (center)
         deckArea = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 20));
@@ -75,7 +104,7 @@ public class GamePlayPanel extends JPanel implements GUIGameController.GameEvent
             }
         });
 
-        // Create stack view
+        // Create stack view for discard pile
         stackView = new CardView(null, true);
 
         // Add deck components
@@ -88,23 +117,25 @@ public class GamePlayPanel extends JPanel implements GUIGameController.GameEvent
         drawButton.setEnabled(false);
         deckArea.add(drawButton);
 
-        centerPanel.add(deckArea, BorderLayout.CENTER);
+        gamePanel.add(deckArea, BorderLayout.CENTER);
 
         // Player area (bottom)
         playerArea = new JPanel(new FlowLayout(FlowLayout.CENTER));
         playerArea.setOpaque(false);
-        centerPanel.add(playerArea, BorderLayout.SOUTH);
+        gamePanel.add(playerArea, BorderLayout.SOUTH);
 
         // Combine all panels
         add(infoPanel, BorderLayout.NORTH);
-        add(centerPanel, BorderLayout.CENTER);
+        add(gamePanel, BorderLayout.CENTER);
     }
 
     // Method to initialize the game with players
     public void initializeGame(List<Player> players) {
         // Clear existing player views
         playerArea.removeAll();
-        opponentArea.removeAll();
+        topOpponentArea.removeAll();
+        leftOpponentArea.removeAll();
+        rightOpponentArea.removeAll();
         playerHandViews.clear();
 
         if (players.size() >= 1) {
@@ -123,12 +154,40 @@ public class GamePlayPanel extends JPanel implements GUIGameController.GameEvent
             playerArea.add(mainPlayerView);
         }
 
-        // Add opponent players
-        for (int i = 1; i < players.size(); i++) {
-            Player opponent = players.get(i);
+        // Add opponent players based on count
+        if (players.size() == 2) {
+            // Single opponent on top
+            Player opponent = players.get(1);
             PlayerHandView opponentView = new PlayerHandView(opponent, true);
             playerHandViews.add(opponentView);
-            opponentArea.add(opponentView);
+            topOpponentArea.add(opponentView);
+        } else if (players.size() == 3) {
+            // Two opponents, one on left, one on right
+            Player leftOpponent = players.get(1);
+            PlayerHandView leftView = new PlayerHandView(leftOpponent, true);
+            playerHandViews.add(leftView);
+            leftOpponentArea.add(leftView);
+
+            Player rightOpponent = players.get(2);
+            PlayerHandView rightView = new PlayerHandView(rightOpponent, true);
+            playerHandViews.add(rightView);
+            rightOpponentArea.add(rightView);
+        } else if (players.size() == 4) {
+            // Three opponents: one top, one left, one right
+            Player topOpponent = players.get(1);
+            PlayerHandView topView = new PlayerHandView(topOpponent, true);
+            playerHandViews.add(topView);
+            topOpponentArea.add(topView);
+
+            Player leftOpponent = players.get(2);
+            PlayerHandView leftView = new PlayerHandView(leftOpponent, true);
+            playerHandViews.add(leftView);
+            leftOpponentArea.add(leftView);
+
+            Player rightOpponent = players.get(3);
+            PlayerHandView rightView = new PlayerHandView(rightOpponent, true);
+            playerHandViews.add(rightView);
+            rightOpponentArea.add(rightView);
         }
 
         // Initialize game with players
@@ -156,6 +215,7 @@ public class GamePlayPanel extends JPanel implements GUIGameController.GameEvent
     }
 
     // GameEventListener implementation
+    @Override
     public void onGameStateChanged() {
         topCard = gameController.getTopCard();
 
@@ -174,7 +234,7 @@ public class GamePlayPanel extends JPanel implements GUIGameController.GameEvent
         repaint();
     }
 
-
+    @Override
     public void onPlayerTurnChanged(Player player) {
         currentPlayer = player;
 
@@ -203,19 +263,19 @@ public class GamePlayPanel extends JPanel implements GUIGameController.GameEvent
         repaint();
     }
 
-
+    @Override
     public void onCardPlayed(Player player, Card card) {
         // Update status
         statusLabel.setText(player.getName() + " played " + card.toString());
     }
 
-
+    @Override
     public void onCardDrawn(Player player, Card card) {
         // Update status
         statusLabel.setText(player.getName() + " drew a card");
     }
 
-
+    @Override
     public void onSpecialCardEffect(String effect) {
         // Update status based on effect
         switch (effect) {
@@ -231,7 +291,7 @@ public class GamePlayPanel extends JPanel implements GUIGameController.GameEvent
         }
     }
 
-
+    @Override
     public void onGameOver(Player winner) {
         statusLabel.setText("🎉 " + winner.getName() + " wins! 🎉");
         drawButton.setEnabled(false);

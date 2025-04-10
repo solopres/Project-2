@@ -57,21 +57,21 @@ public class PlayerHandView extends JPanel {
             if (!isOpponent && cardClickListener != null) {
                 final Card cardToPlay = card;
                 cardView.addMouseListener(new MouseAdapter() {
-                    @Override
+
                     public void mouseClicked(MouseEvent e) {
                         if (isCurrentPlayer) {
                             cardClickListener.accept(cardToPlay);
                         }
                     }
 
-                    @Override
+
                     public void mouseEntered(MouseEvent e) {
                         if (isCurrentPlayer && cardView.isPlayable()) {
                             setCursor(new Cursor(Cursor.HAND_CURSOR));
                         }
                     }
 
-                    @Override
+
                     public void mouseExited(MouseEvent e) {
                         setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
                     }
@@ -109,7 +109,7 @@ public class PlayerHandView extends JPanel {
         repaint();
     }
 
-    @Override
+
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;

@@ -1,4 +1,4 @@
-# Sprint 7: GUI Updates
+# Sprint 7: GUI Updates/ display cards 
 **Goal:**
 
 - Improve the user interface by connecting it with the new controller and allowing better card interaction.

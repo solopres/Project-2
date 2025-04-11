@@ -18,7 +18,7 @@
 - [Standards and Practices](Documentation/Standards_and_Practices.md)
 - [Timeline](https://github.com/solopres/Project-2/blob/main/Requirements/timeline%20pdf.pdf)
 ### 🖌️ Design
-- [Design Problem Frame](Requirements/Zwei-ProblemFrame.drawio(2).pdf)
+- [Design Problem Frame](https://github.com/solopres/Project-2/blob/main/Design/Zwei-ProblemFrame.drawio.png)
 - [Level 0 Design Diagram](Design/Zwei-LVL-0.drawio.pdf)
 - [Level 1 Design Diagram](https://github.com/solopres/Project-2/blob/main/Design/Zwei-LVL-1%20(Final).drawio.pdf)
 - [UML Diagram](https://github.com/solopres/Project-2/blob/main/Design/Zwei-ClassUMLs.drawio%20(1).png)

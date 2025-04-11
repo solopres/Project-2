@@ -33,11 +33,13 @@
     - This will include a basic setup where the player can see their card and see the opposing player cards
     - Start making card stuff, deck, player hand, opposing player hand
     - Making the back of the card (Braxton)
-## April 4th
-- 
 # Other Week 1
 - Finalized week 1 requirements during the weekend
 # Other Week 2
 - If we do get the GUI set up, the team plans on getting more computer tasks done for the game.
 - Sprint for next week
   - game functionality, making everything function together making every thing work as a good game
+# Other Week 3
+- Made presentation for end of Agile project
+- Completed what was left over from coding
+- Updated the design and sprint reports

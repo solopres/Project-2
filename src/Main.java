@@ -7,8 +7,8 @@ public class Main {
         if (args.length > 0 && args[0].equalsIgnoreCase("console")) {
             runConsoleMode();
         } else {
-           runGUIMode();
-            //runConsoleMode();
+//           runGUIMode();
+            runConsoleMode();
         }
     }
 

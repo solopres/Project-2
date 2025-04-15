@@ -81,7 +81,7 @@ public class CardView extends JPanel {
         g2d.setColor(Color.WHITE);
         g2d.setFont(new Font("Arial", Font.BOLD, 28));
         FontMetrics fm = g2d.getFontMetrics();
-        String text = "UNO";
+        String text = "ZWEI";
         int textX = (CARD_WIDTH - fm.stringWidth(text)) / 2;
         int textY = CARD_HEIGHT / 2 + fm.getAscent() / 2 - fm.getDescent();
         g2d.drawString(text, textX, textY);
